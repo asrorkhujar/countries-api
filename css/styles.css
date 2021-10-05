@@ -44,8 +44,8 @@ body {
 }
 
 .country__flag {
-  height: 160px;
-  object-fit: cover;
+  height: 140px;
+  /* object-fit: cover; */
 }
 
 dt {

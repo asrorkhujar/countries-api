@@ -1,5 +1,4 @@
-// GLOBAL VARS
-let COUNTRIES_BASE_URL = 'https://restcountries.com/v3.1';
+const API_BASE_URL = 'https://restcountries.com/v3.1';
 
 // DOM ELEMENTS
 const elCountriesForm = document.querySelector('.countries__form');
@@ -54,24 +53,23 @@ function showCountriesError() {
 function onCounryFormSubmit(evt) {
   evt.preventDefault();
 
-  let searchUrl = `${COUNTRIES_BASE_URL}/name/${elCountrySearchInput.value.trim()}`;
+  let searchUrl = `${API_BASE_URL}/name/${elCountrySearchInput.value.trim()}`;
   getJSON(searchUrl, showCountries, showCountriesError);
 }
 
 function onClickCountryList(evt) {
   if (evt.target.matches('.country__more-btn')) {
-    let modalUrl = `${COUNTRIES_BASE_URL}/name/${evt.target.dataset.name}`;
+    let modalUrl = `${API_BASE_URL}/name/${evt.target.dataset.name}`;
     getJSON(modalUrl, updateCountryModal, showCountriesError);
   }
 }
 
 function clearModal() {
-  elCountryItem.querySelector('img').src = '';
-  elCountryItem.querySelector('.country__name').textContent = '';
-  elCountryItem.querySelector('.country__population').textContent ='' ;
-  elCountryItem.querySelector('.country__region').textContent = '';
-  elCountryItem.querySelector('.country__capital').textContent = '';
-  elCountryItem.querySelector('.country__more-btn').dataset.name = '';
+  elCountryModal.querySelector('img').src = '';
+  elCountryModal.querySelector('.country__name').textContent = '';
+  elCountryModal.querySelector('.country__population').textContent ='' ;
+  elCountryModal.querySelector('.country__region').textContent = '';
+  elCountryModal.querySelector('.country__capital').textContent = '';
 }
 
 function updateCountryModal(data) {
@@ -81,7 +79,6 @@ function updateCountryModal(data) {
 
   // elCountryModal.querySelector('.country__details-currency').textContent = Object.keys(data[0].currencies).join(', ');
 
-
   //Asrorxo'ja aka bu variant ham bor aka "Abdulaziz" //
   elCountryModal.querySelector('.country__details-currency').textContent = Object.values(data[0].currencies)[0].name;
 
@@ -89,7 +86,7 @@ function updateCountryModal(data) {
   elCountryModal.querySelector('.country__details-borders').textContent = data[0].borders.join(', ');
 }
 
-getJSON(`${COUNTRIES_BASE_URL}/all`, showCountries, showCountriesError);
+getJSON(`${API_BASE_URL}/all`, showCountries, showCountriesError);
 
 // EVENT LISTENERS
 if (elCountriesForm) {
