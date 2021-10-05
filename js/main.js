@@ -79,7 +79,12 @@ function updateCountryModal(data) {
   elCountryModal.querySelector('.info-country__img').src = data[0].flags.svg;
   elCountryModal.querySelector('.country__details-region').textContent = data[0].region;
 
-  elCountryModal.querySelector('.country__details-currency').textContent = Object.keys(data[0].currencies).join(', ');
+  // elCountryModal.querySelector('.country__details-currency').textContent = Object.keys(data[0].currencies).join(', ');
+
+
+  //Asrorxo'ja aka bu variant ham bor aka "Abdulaziz" //
+  elCountryModal.querySelector('.country__details-currency').textContent = Object.values(data[0].currencies)[0].name;
+
   // elCountryModal.querySelector('.country__details-currency').textContent = data[0].languages.join(', ');
   elCountryModal.querySelector('.country__details-borders').textContent = data[0].borders.join(', ');
 }
