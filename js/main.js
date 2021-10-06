@@ -82,7 +82,7 @@ function updateCountryModal(data) {
 
   //Asrorxo'ja aka bu variant ham bor aka "Abdulaziz" //
   elCountryModal.querySelector('.country__details-currency').textContent = Object.values(data[0].currencies)[0].name;
-  elCountryModal.querySelector('.country__details-language').textContent = Object.keys(data[0].languages).join(', ');
+  elCountryModal.querySelector('.country__details-language').textContent = Object.values(data[0].languages).join(', ');
   elCountryModal.querySelector('.country__details-borders').textContent = data[0].borders.join(', ');
 }
 
